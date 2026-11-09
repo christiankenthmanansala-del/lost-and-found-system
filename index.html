@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>REFOUND</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 36 36'%3E%3Crect width='36' height='36' rx='9' fill='%23f2c230'/%3E%3Cg fill='none' stroke='%2314262b' stroke-width='3' stroke-linecap='round'%3E%3Cpath d='M22.75 9.77A9.5 9.5 0 1 1 14.75 9.07'/%3E%3Cpath d='M24.8 24.8L31 31' stroke-width='3.6'/%3E%3C/g%3E%3Cpolygon points='18.2,7.9 13.8,6.3 15.6,11.9' fill='%2314262b'/%3E%3Ccircle cx='18' cy='18' r='2.6' fill='%2314262b'/%3E%3C/svg%3E">
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@600;800&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>
+        try {
+            var t = localStorage.getItem("lf-theme");
+            if (t === "light" || t === "dark") document.documentElement.setAttribute("data-theme", t);
+        } catch (e) {}
+    </script>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .search {
+            margin: 0;
+        }
+    </style>
+</head>
+
+<body class="locked">
+    <div class="login" id="login">
+        <form class="login-card" id="lform">
+            <div class="brand"><i><svg viewBox="0 0 36 36" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.75 9.77A9.5 9.5 0 1 1 14.75 9.07"/><polygon points="18.2,7.9 13.8,6.3 15.6,11.9" fill="currentColor" stroke-width="1"/><path d="M24.8 24.8L31 31" stroke-width="3.6"/><circle cx="18" cy="18" r="2.6" fill="currentColor" stroke="none"/></svg></i>
+                <span
+                    class="wm">REFOUND<small>Lost &amp; Found</small></span>
+            </div>
+            <div class="modes" role="tablist"><button type="button" role="tab" id="m-in" data-m="in" aria-selected="true">Sign in</button><button type="button" role="tab" id="m-up" data-m="up" aria-selected="false">Create account</button></div>
+            <p id="lsub">Sign in to manage items at the desk.</p>
+            <div class="only-up"><label for="nm">Full name</label><input id="nm" autocomplete="name" placeholder="Alex Morgan"></div>
+            <label for="u">Username</label><input id="u" autocomplete="username" required>
+            <label for="pw" id="lpl">Password</label>
+            <div class="pw"><input id="pw" type="password" autocomplete="current-password" required><button type="button" id="eye" aria-label="Show password">Show</button></div>
+            <p class="forgot only-in"><button type="button" class="lnk" data-m="rs">Forgot password?</button></p>
+            <p class="err" id="err" role="alert"></p>
+            <button class="btn" id="go" type="submit">Sign in</button>
+            <p class="fine only-up">Use at least 6 characters for your password.</p>
+            <p class="switch"><span class="only-in">New here? <button type="button" class="lnk" data-m="up">Create an account</button></span><span class="only-su">Already have an account? <button type="button" class="lnk" data-m="in">Sign in</button></span><span class="only-rs">Remembered it? <button type="button" class="lnk" data-m="in">Back to sign in</button></span></p>
+        </form>
+    </div>
+    <div class="app">
+        <aside>
+            <div class="brand"><i><svg viewBox="0 0 36 36" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.75 9.77A9.5 9.5 0 1 1 14.75 9.07"/><polygon points="18.2,7.9 13.8,6.3 15.6,11.9" fill="currentColor" stroke-width="1"/><path d="M24.8 24.8L31 31" stroke-width="3.6"/><circle cx="18" cy="18" r="2.6" fill="currentColor" stroke="none"/></svg></i>
+                <span
+                    class="wm">REFOUND<small>Lost &amp; Found</small></span>
+            </div>
+            <nav id="nav" aria-label="Filter by status"></nav>
+            <p class="side-note">Tip: log found items the moment they arrive. Matches appear automatically.</p>
+            <button class="me" id="me" type="button" aria-label="Open profile and appearance settings"></button>
+            <button class="logout" id="logout">Sign out</button>
+        </aside>
+
+        <main>
+            <div class="brand mbrand"><i><svg viewBox="0 0 36 36" width="26" height="26" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22.75 9.77A9.5 9.5 0 1 1 14.75 9.07"/><polygon points="18.2,7.9 13.8,6.3 15.6,11.9" fill="currentColor" stroke-width="1"/><path d="M24.8 24.8L31 31" stroke-width="3.6"/><circle cx="18" cy="18" r="2.6" fill="currentColor" stroke="none"/></svg></i>
+                <span
+                    class="wm">REFOUND<small>Lost &amp; Found</small></span>
+            </div>
+            <div class="top">
+                <div>
+                    <h1 id="title">All items</h1>
+                    <p id="subtitle">Everything logged at the desk.</p>
+                </div>
+                <button class="btn" id="add">+ Log an item</button>
+                <div class="mtools">
+                    <button class="mavatar" id="mme" type="button" aria-label="Open profile and appearance settings"></button>
+                    <button class="mlogout" id="logout2">Sign out</button>
+                </div>
+            </div>
+            <section class="stats" id="stats"></section>
+            <div class="bar">
+                <label class="search" for="q"><span>🔍</span><input id="q" type="search" placeholder="Search name, place or description"></label>
+                <select id="cat" aria-label="Category"></select>
+                <select id="sort" aria-label="Sort"><option value="new">Newest first</option><option value="old">Oldest first</option><option value="az">Name A–Z</option></select>
+            </div>
+            <div class="grid" id="list" aria-live="polite"></div>
+        </main>
+    </div>
+
+    <nav class="tabs" id="tabs" aria-label="Filter by status"></nav>
+    <button class="fab" id="fab" aria-label="Log an item">+</button>
+    <div class="scrim" id="scrim"></div>
+    <aside class="panel" id="panel" aria-hidden="true"></aside>
+    <div class="toast" id="toast" role="status"></div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
